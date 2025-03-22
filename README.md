@@ -1,6 +1,7 @@
 # Vite + Express + TypeScript
 
 This project is a template for building a web application using Vite, React, Express, and TypeScript.
+Template Author: https://github.com/gabrielalmir/vite-express-ts 
 
 ## Project Structure
 
