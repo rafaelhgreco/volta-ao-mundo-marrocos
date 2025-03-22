@@ -1,14 +1,10 @@
 import { useState } from "react";
+import "./header.css";
 
 function Header() {
     return (
         <header className="bg-white shadow-md py-4">
             <div className="container mx-auto flex items-center justify-between px-6">
-                {/* Logo */}
-                <div className="flex-1 flex justify-center">
-                    <img src="/logo.png" alt="Logo" className="h-10" />
-                </div>
-
                 {/* Navegação */}
                 <nav className="flex space-x-6">
                     <Dropdown
@@ -24,6 +20,15 @@ function Header() {
                         options={["Email", "Telefone", "Localização"]}
                     />
                 </nav>
+
+                {/* Logo */}
+                <div className="flex-3 flex justify-center items-center">
+                    <img
+                        src="/images/flag-marrocos.jpg"
+                        alt="Logo"
+                        className="h-20 rounded-lg"
+                    />
+                </div>
 
                 {/* Botão de Dúvidas */}
                 <div className="flex-1 flex justify-end">
