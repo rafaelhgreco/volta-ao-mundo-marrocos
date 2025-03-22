@@ -1,14 +1,26 @@
-import express, { Request, Response } from "express";
+import { Request, Response } from "express";
 
-const router = express.Router();
-
+// Simulação de um banco de dados
 const users = [
-    { id: 1, nome: "Alice", email: "alice@email.com" },
+    { id: 1, nome: "Dadda", email: "alice@email.com" },
     { id: 2, nome: "Bob", email: "bob@email.com" },
 ];
 
-router.get("/", (req: Request, res: Response) => {
+// 🟢 Lista todos os usuários
+const getAllUsers = (req: Request, res: Response) => {
     res.status(200).json(users);
-});
+};
 
-export default router; // 🔥 Exportando corretamente o router
+// 🟢 Busca usuário por ID
+const getUserById = (req: Request, res: Response) => {
+    const userId = parseInt(req.params.id);
+    const user = users.find((u) => u.id === userId);
+
+    if (!user) {
+        return res.status(404).json({ error: "Usuário não encontrado" });
+    }
+
+    return res.status(200).json(user);
+};
+
+export default { getAllUsers, getUserById }; // 🔥 Exportando como objeto
