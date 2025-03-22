@@ -1,25 +1,20 @@
+// src/controllers/userController.ts
 import { Request, Response } from "express";
+import { UserService } from "../services/userService";
 
-// Simulação de um banco de dados
-const users = [
-    { id: 1, nome: "Dadda", email: "alice@email.com" },
-    { id: 2, nome: "Bob", email: "bob@email.com" },
-];
+export class UserController {
+    // Método para criar um novo usuário
+    static async createUser(req: Request, res: Response): Promise<void> {
+        const { name, email, password } = req.body;
 
-const getAllUsers = (req: Request, res: Response) => {
-    res.status(200).json(users);
-};
-
-const getUserById = (req: Request, res: Response): void => {
-    const userId = parseInt(req.params.id);
-    const user = users.find((u) => u.id === userId);
-
-    if (!user) {
-        res.status(404).json({ error: "Usuário não encontrado" });
-        return; // Encerra a função após enviar a resposta
+        // Chama o serviço para criar o usuário
+        const user = await UserService.createUser(name, email, password);
+        res.status(201).json(user);
     }
 
-    res.status(200).json(user);
-};
-
-export default { getAllUsers, getUserById };
+    // Método para listar todos os usuários
+    static async getAllUsers(req: Request, res: Response): Promise<void> {
+        const users = await UserService.getAllUsers();
+        res.status(200).json(users);
+    }
+}
