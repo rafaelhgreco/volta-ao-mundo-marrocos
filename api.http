@@ -1,0 +1,12 @@
+### Criar um novo usuário
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Carlos",
+  "email": "carlosssssss222s@email.com",
+  "password": "senha123"
+}
+
+### Listar todos os usuários
+GET http://localhost:3000/users
