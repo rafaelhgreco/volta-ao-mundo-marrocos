@@ -1,10 +1,9 @@
 import express from "express";
-import userController from "../../controllers/userController"; // 🔥 Caminho correto para o controller
+import userController from "../../controllers/userController";
 
-const router = express.Router();
+const router: express.Router = express.Router();
 
-// Definindo as rotas da API
 router.get("/", userController.getAllUsers);
-// router.get("/:id", userController.getUserById);
+router.get("/:id", userController.getUserById);
 
 export default router;

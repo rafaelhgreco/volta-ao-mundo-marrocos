@@ -1,13 +1,12 @@
 import express from "express";
 import cors from "cors";
-import userRoutes from "./routes/api/users"; // 🔥 Importando as rotas corretamente
+import userRoutes from "./routes/api/users";
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-// 🔥 Registrando todas as rotas da API
 app.use("/api/users", userRoutes);
 
 const PORT = 3000;
