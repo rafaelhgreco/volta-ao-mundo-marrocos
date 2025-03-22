@@ -1,5 +1,5 @@
 // src/models/userModel.ts
-import { Database } from "../../config/database";
+import { Database } from "../config/database";
 
 export class UserModel {
     private static db = Database.getInstance();
