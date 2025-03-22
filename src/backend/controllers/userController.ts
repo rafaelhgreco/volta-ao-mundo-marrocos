@@ -6,7 +6,7 @@ const users = [
     { id: 2, nome: "Bob", email: "bob@email.com" },
 ];
 
-const getAllUsers = (res: Response) => {
+const getAllUsers = (req: Request, res: Response) => {
     res.status(200).json(users);
 };
 
@@ -16,7 +16,7 @@ const getUserById = (req: Request, res: Response): void => {
 
     if (!user) {
         res.status(404).json({ error: "Usuário não encontrado" });
-        return;
+        return; // Encerra a função após enviar a resposta
     }
 
     res.status(200).json(user);
