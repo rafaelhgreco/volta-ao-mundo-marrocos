@@ -1,79 +1,82 @@
-import { Menu, Transition } from "@headlessui/react";
-import { Fragment } from "react";
+import { NavLink } from "react-router-dom";
 
-function Header() {
+export function Header() {
     return (
         <header className="bg-white shadow-md py-4">
-            <div className="container mx-auto flex items-center justify-between px-6">
-                {/* Navegação */}
-                <nav className="flex space-x-6">
-                    <Dropdown
-                        title="Serviços"
-                        options={["Opção 1", "Opção 2", "Opção 3"]}
-                    />
-                    <Dropdown
-                        title="Sobre"
-                        options={["Nossa História", "Equipe", "Missão"]}
-                    />
-                    <Dropdown
-                        title="Contato"
-                        options={["Email", "Telefone", "Localização"]}
-                    />
-                </nav>
-
-                {/* Logo */}
-                <div className="flex-3 flex justify-center items-center">
-                    <img
-                        src="/images/flag-marrocos.jpg"
-                        alt="Logo"
-                        className="h-20 rounded-lg"
-                    />
+            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 gap-4">
+                <div className="order-2 md:order-1">
+                    <NavLink to="/">
+                        <img
+                            src="/images/flag-marrocos.jpg"
+                            alt="Logo"
+                            className="h-16 md:h-20 rounded-lg"
+                        />
+                    </NavLink>
                 </div>
 
-                {/* Botão de Dúvidas */}
-                <div className="flex-1 flex justify-end">
-                    <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                <nav className="order-1 md:order-2 flex flex-wrap justify-center gap-4 md:gap-6">
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) =>
+                            `px-3 py-1 rounded-md ${
+                                isActive
+                                    ? "bg-blue-100 text-blue-600"
+                                    : "text-gray-700 hover:bg-gray-100"
+                            }`
+                        }
+                    >
+                        Home
+                    </NavLink>
+
+                    <NavLink
+                        to="/servicos"
+                        className={({ isActive }) =>
+                            `px-3 py-1 rounded-md ${
+                                isActive
+                                    ? "bg-blue-100 text-blue-600"
+                                    : "text-gray-700 hover:bg-gray-100"
+                            }`
+                        }
+                    >
+                        Serviços
+                    </NavLink>
+
+                    <NavLink
+                        to="/sobre"
+                        className={({ isActive }) =>
+                            `px-3 py-1 rounded-md ${
+                                isActive
+                                    ? "bg-blue-100 text-blue-600"
+                                    : "text-gray-700 hover:bg-gray-100"
+                            }`
+                        }
+                    >
+                        Sobre
+                    </NavLink>
+
+                    <NavLink
+                        to="/contato"
+                        className={({ isActive }) =>
+                            `px-3 py-1 rounded-md ${
+                                isActive
+                                    ? "bg-blue-100 text-blue-600"
+                                    : "text-gray-700 hover:bg-gray-100"
+                            }`
+                        }
+                    >
+                        Contato
+                    </NavLink>
+                </nav>
+
+                <div className="order-3">
+                    <NavLink
+                        to="/contato"
+                        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 font-medium"
+                    >
                         Tirar Dúvida
-                    </button>
+                    </NavLink>
                 </div>
             </div>
         </header>
     );
 }
-
-function Dropdown({ title, options }: { title: string; options: string[] }) {
-    return (
-        <Menu as="div" className="relative">
-            <Menu.Button className="text-gray-700 font-medium hover:text-blue-500">
-                {title}
-            </Menu.Button>
-            <Transition
-                as={Fragment}
-                enter="transition ease-out duration-100"
-                enterFrom="transform opacity-0 scale-95"
-                enterTo="transform opacity-100 scale-100"
-                leave="transition ease-in duration-75"
-                leaveFrom="transform opacity-100 scale-100"
-                leaveTo="transform opacity-0 scale-95"
-            >
-                <Menu.Items className="absolute mt-2 w-48 origin-top-right bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    {options.map((option, index) => (
-                        <Menu.Item key={index}>
-                            {({ active }) => (
-                                <button
-                                    className={`${
-                                        active ? "bg-gray-100" : ""
-                                    } text-gray-700 block w-full px-4 py-2 text-left`}
-                                >
-                                    {option}
-                                </button>
-                            )}
-                        </Menu.Item>
-                    ))}
-                </Menu.Items>
-            </Transition>
-        </Menu>
-    );
-}
-
-export default Header;

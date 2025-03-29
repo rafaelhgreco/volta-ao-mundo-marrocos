@@ -1,11 +1,14 @@
-import Header from "./components/header/header";
-function App() {
+import { Header } from "./components/header/header";
+import { Route, Routes } from "react-router-dom";
+import { HomePage } from "./pages/homepage";
+
+export const App = () => {
     return (
         <>
             <Header />
-            <h2 className="text-2xl text-blue-500">Oi tailwind</h2>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+            </Routes>
         </>
     );
-}
-
-export default App;
+};
