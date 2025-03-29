@@ -1,11 +1,21 @@
-import { Menu, Transition } from "@headlessui/react";
+import {
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuItems,
+    Transition,
+} from "@headlessui/react";
 import { Fragment } from "react";
 
-function Header() {
+interface DropdownProps {
+    title: string;
+    options: string[];
+}
+
+export const Header = () => {
     return (
         <header className="bg-white shadow-md py-4">
             <div className="container mx-auto flex items-center justify-between px-6">
-                {/* Navegação */}
                 <nav className="flex space-x-6">
                     <Dropdown
                         title="Serviços"
@@ -21,7 +31,6 @@ function Header() {
                     />
                 </nav>
 
-                {/* Logo */}
                 <div className="flex-3 flex justify-center items-center">
                     <img
                         src="/images/flag-marrocos.jpg"
@@ -30,7 +39,6 @@ function Header() {
                     />
                 </div>
 
-                {/* Botão de Dúvidas */}
                 <div className="flex-1 flex justify-end">
                     <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
                         Tirar Dúvida
@@ -39,14 +47,14 @@ function Header() {
             </div>
         </header>
     );
-}
+};
 
-function Dropdown({ title, options }: { title: string; options: string[] }) {
+const Dropdown: React.FC<DropdownProps> = ({ title, options }) => {
     return (
         <Menu as="div" className="relative">
-            <Menu.Button className="text-gray-700 font-medium hover:text-blue-500">
+            <MenuButton className="text-gray-700 font-medium hover:text-blue-500">
                 {title}
-            </Menu.Button>
+            </MenuButton>
             <Transition
                 as={Fragment}
                 enter="transition ease-out duration-100"
@@ -56,10 +64,10 @@ function Dropdown({ title, options }: { title: string; options: string[] }) {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
             >
-                <Menu.Items className="absolute mt-2 w-48 origin-top-right bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <MenuItems className="absolute mt-2 w-48 origin-top-right bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                     {options.map((option, index) => (
-                        <Menu.Item key={index}>
-                            {({ active }) => (
+                        <MenuItem key={index}>
+                            {({ active }: { active: boolean }) => (
                                 <button
                                     className={`${
                                         active ? "bg-gray-100" : ""
@@ -68,12 +76,10 @@ function Dropdown({ title, options }: { title: string; options: string[] }) {
                                     {option}
                                 </button>
                             )}
-                        </Menu.Item>
+                        </MenuItem>
                     ))}
-                </Menu.Items>
+                </MenuItems>
             </Transition>
         </Menu>
     );
-}
-
-export default Header;
+};
