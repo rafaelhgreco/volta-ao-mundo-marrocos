@@ -1,85 +1,82 @@
-import { Link } from "react-router-dom";
-import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
+import { NavLink } from "react-router-dom";
 
-export const Header = () => {
-    // Dados dos menus
-    const navItems = [
-        {
-            title: "Serviços",
-            links: [
-                { name: "Opção 1", path: "/servicos/opcao1" },
-                { name: "Opção 2", path: "/servicos/opcao2" },
-            ],
-        },
-        {
-            title: "Sobre",
-            links: [
-                { name: "Nossa História", path: "/sobre/historia" },
-                { name: "Equipe", path: "/sobre/equipe" },
-            ],
-        },
-        {
-            title: "Contato",
-            links: [
-                { name: "Email", path: "/contato/email" },
-                { name: "Localização", path: "/contato/localizacao" },
-            ],
-        },
-    ];
-
+export function Header() {
     return (
         <header className="bg-white shadow-md py-4">
-            <div className="container mx-auto flex items-center justify-between px-6">
-                <nav className="flex space-x-6">
-                    {/* Links simples */}
-                    <Link
-                        to="/"
-                        className="self-center text-gray-700 hover:text-blue-500"
-                    >
-                        Home
-                    </Link>
-
-                    {/* Dropdowns */}
-                    {navItems.map((item) => (
-                        <Menu key={item.title} as="div" className="relative">
-                            <MenuButton className="text-gray-700 hover:text-blue-500">
-                                {item.title}
-                            </MenuButton>
-                            <MenuItems className="absolute mt-2 w-48 bg-white shadow-lg rounded-md z-10">
-                                {item.links.map((link) => (
-                                    <MenuItem key={link.path}>
-                                        <Link
-                                            to={link.path}
-                                            className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                                        >
-                                            {link.name}
-                                        </Link>
-                                    </MenuItem>
-                                ))}
-                            </MenuItems>
-                        </Menu>
-                    ))}
-                </nav>
-
-                <div className="flex-3 flex justify-center items-center">
-                    <Link to="/">
+            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 gap-4">
+                <div className="order-2 md:order-1">
+                    <NavLink to="/">
                         <img
                             src="/images/flag-marrocos.jpg"
                             alt="Logo"
-                            className="h-20 rounded-lg"
+                            className="h-16 md:h-20 rounded-lg"
                         />
-                    </Link>
+                    </NavLink>
                 </div>
 
-                <div className="flex-1 flex justify-end">
-                    <Link
-                        to="/duvidas"
-                        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                <nav className="order-1 md:order-2 flex flex-wrap justify-center gap-4 md:gap-6">
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) =>
+                            `px-3 py-1 rounded-md ${
+                                isActive
+                                    ? "bg-blue-100 text-blue-600"
+                                    : "text-gray-700 hover:bg-gray-100"
+                            }`
+                        }
+                    >
+                        Home
+                    </NavLink>
+
+                    <NavLink
+                        to="/servicos"
+                        className={({ isActive }) =>
+                            `px-3 py-1 rounded-md ${
+                                isActive
+                                    ? "bg-blue-100 text-blue-600"
+                                    : "text-gray-700 hover:bg-gray-100"
+                            }`
+                        }
+                    >
+                        Serviços
+                    </NavLink>
+
+                    <NavLink
+                        to="/sobre"
+                        className={({ isActive }) =>
+                            `px-3 py-1 rounded-md ${
+                                isActive
+                                    ? "bg-blue-100 text-blue-600"
+                                    : "text-gray-700 hover:bg-gray-100"
+                            }`
+                        }
+                    >
+                        Sobre
+                    </NavLink>
+
+                    <NavLink
+                        to="/contato"
+                        className={({ isActive }) =>
+                            `px-3 py-1 rounded-md ${
+                                isActive
+                                    ? "bg-blue-100 text-blue-600"
+                                    : "text-gray-700 hover:bg-gray-100"
+                            }`
+                        }
+                    >
+                        Contato
+                    </NavLink>
+                </nav>
+
+                <div className="order-3">
+                    <NavLink
+                        to="/contato"
+                        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 font-medium"
                     >
                         Tirar Dúvida
-                    </Link>
+                    </NavLink>
                 </div>
             </div>
         </header>
     );
-};
+}
