@@ -2,11 +2,10 @@ import react from "@vitejs/plugin-react-swc";
 import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 
-// https://vite.dev/config/
 export default defineConfig({
     plugins: [react(), tailwindcss()],
     build: {
-        outDir: "src/frontend/dist",
+        outDir: "dist", // Alterado para a raiz do projeto
         emptyOutDir: true,
     },
     base: "/volta-ao-mundo-marrocos/",
