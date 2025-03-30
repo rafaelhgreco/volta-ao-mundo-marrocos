@@ -17,7 +17,7 @@ export const Body = ({ children, featuredArticle }: BodyProps) => {
                     {children}
                 </main>
             </div>
-            <footer className="bg-gray-800 text-white p-4 fixed bottom-0 w-full">
+            <footer className="bg-gray-800 text-white p-4 w-full">
                 © {new Date().getFullYear()} Projeto Volta ao Mundo - Rafael
                 Henrique Greco
             </footer>

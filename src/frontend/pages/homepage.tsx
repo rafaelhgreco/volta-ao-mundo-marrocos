@@ -5,21 +5,21 @@ export function HomePage() {
     const articles = [
         {
             id: 1,
-            title: "Novo avanço na tecnologia de energia renovável",
+            title: "Marrocos: Um Reino de Beleza, Cultura e Qualidade de Vida",
             excerpt:
-                "Cientistas desenvolvem painel solar com eficiência recorde de 45%",
-            date: "2023-06-15",
-            category: "Tecnologia",
+                "Bem-vindo ao Marrocos, um país onde a tradição e a modernidade se encontram, criando um destino único no Norte da África. Com uma rica herança cultural, paisagens deslumbrantes e uma qualidade de vida encantadora, Marrocos é um lugar que cativa corações e mentes.",
+            date: "2025-03-29",
+            category: "Cultura",
             imageUrl:
-                "https://via.placeholder.com/800x400?text=Energia+Renovável",
+                "https://www.remessaonline.com.br/blog/wp-content/uploads/2023/08/marrocos.jpg.webp",
         },
         {
             id: 2,
-            title: "Mercado financeiro reage às novas políticas econômicas",
+            title: "Um Mosaico de Comunicação",
             excerpt:
-                "Bolsa de valores tem maior alta em 3 meses após anúncio do governo",
-            date: "2023-06-14",
-            category: "Economia",
+                "Marrocos é um país multilíngue, onde o árabe marroquino (Darija) e o tamazight (berbere) são as línguas nacionais, enquanto o francês é amplamente utilizado nos negócios e na educação. O espanhol também é falado em algumas regiões, e o inglês vem ganhando popularidade entre as novas gerações. Essa diversidade linguística reflete a história e a abertura do povo marroquino ao mundo.",
+            date: "2025-03-27",
+            category: "Língua",
         },
         // Adicione mais artigos conforme necessário
     ];

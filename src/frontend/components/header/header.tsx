@@ -7,7 +7,7 @@ export function Header() {
                 <div className="order-2 md:order-1">
                     <NavLink to="/">
                         <img
-                            src="/images/flag-marrocos.jpg"
+                            src="flag-marrocos.jpg"
                             alt="Logo"
                             className="h-16 md:h-20 rounded-lg"
                         />
@@ -29,7 +29,7 @@ export function Header() {
                     </NavLink>
 
                     <NavLink
-                        to="/servicos"
+                        to="/religion"
                         className={({ isActive }) =>
                             `px-3 py-1 rounded-md ${
                                 isActive
@@ -38,11 +38,11 @@ export function Header() {
                             }`
                         }
                     >
-                        Serviços
+                        Religião
                     </NavLink>
 
                     <NavLink
-                        to="/sobre"
+                        to="/galeria"
                         className={({ isActive }) =>
                             `px-3 py-1 rounded-md ${
                                 isActive
@@ -51,11 +51,11 @@ export function Header() {
                             }`
                         }
                     >
-                        Sobre
+                        Galeria
                     </NavLink>
 
                     <NavLink
-                        to="/contato"
+                        to="/about"
                         className={({ isActive }) =>
                             `px-3 py-1 rounded-md ${
                                 isActive
@@ -64,13 +64,13 @@ export function Header() {
                             }`
                         }
                     >
-                        Contato
+                        Sobre Nós
                     </NavLink>
                 </nav>
 
                 <div className="order-3">
                     <NavLink
-                        to="/contato"
+                        to="/"
                         className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 font-medium"
                     >
                         Tirar Dúvida
