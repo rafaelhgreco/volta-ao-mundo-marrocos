@@ -8,4 +8,5 @@ export default defineConfig({
     build: {
         outDir: "src/frontend/dist",
     },
+    base: "/volta-ao-mundo-marrocos/",
 });

@@ -7,7 +7,7 @@ export function Header() {
                 <div className="order-2 md:order-1">
                     <NavLink to="/">
                         <img
-                            src="/images/flag-marrocos.jpg"
+                            src="flag-marrocos.jpg"
                             alt="Logo"
                             className="h-16 md:h-20 rounded-lg"
                         />
