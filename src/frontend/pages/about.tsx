@@ -1,4 +1,4 @@
-import { FaReact, FaGithub } from "react-icons/fa";
+import { FaReact, FaGithub, FaBootstrap } from "react-icons/fa";
 import { SiTypescript, SiTailwindcss, SiReactrouter } from "react-icons/si";
 
 export const AboutPage = () => {
@@ -32,6 +32,13 @@ export const AboutPage = () => {
             descricao: "Hospedagem gratuita para projetos",
             link: "https://pages.github.com",
             icone: <FaGithub className="text-gray-800 text-3xl" />,
+        },
+        {
+            nome: "Bootstrap",
+            descricao:
+                "O Bootstrap utiliza Sass para uma arquitetura modular e personalizável",
+            link: "https://getbootstrap.com/",
+            icone: <FaBootstrap className="text-gray-800 text-3xl" />,
         },
     ];
 

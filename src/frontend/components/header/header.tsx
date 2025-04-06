@@ -70,7 +70,7 @@ export function Header() {
 
                 <div className="order-3">
                     <NavLink
-                        to="/"
+                        to="/formsquestion"
                         className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 font-medium"
                     >
                         Tirar Dúvida
